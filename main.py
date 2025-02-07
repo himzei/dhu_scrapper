@@ -36,5 +36,5 @@ def search():
         keyword=keyword, 
         jobs=enumerate(jobs[1:])
     )
-
-app.run()
+if __name__ == "__main__": 
+    app.run()
