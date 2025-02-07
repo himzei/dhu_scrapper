@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <header class="container">
+      <h1>{{ keyword }} 의 검색결과</h1>
+    </header>
+
+    <main class="container">
+      <table class="striped">
+        <!-- 테이블의 필드명 -->
+        <thead data-theme="dark">
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">공고제목</th>
+            <th scope="col">회사이름</th>
+            <th scope="col">회사위치</th>
+            <th scope="col">자세히보기</th>
+          </tr>
+        </thead>
+        <!-- 테이블의 본문 -->
+        <tbody>
+          {% for i, job in jobs %}
+          <tr>
+            <td>{{ i + 1 }}</td>
+            <td>{{ job["title"] }}</td>
+            <td>{{ job["company_name"] }}</td>
+            <td>{{ job["location"] }}</td>
+            <td><a href='{{ job["link"] }}' target="_blank">🥁🚛📝</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </main>
+
+    <footer class="container">
+      Copyright @ dhu-scrapper All rights reserved
+    </footer>
+  </body>
+</html>
